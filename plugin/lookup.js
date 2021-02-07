@@ -24,6 +24,14 @@ class AlHaTorahInfo extends WordInfo {
     }
 }
 
+class TextReference {
+
+}
+
+class DictionaryEntry {
+    
+}
+
 function getWordInfo(info) {
     console.log(info);
     if (info.pageUrl.indexOf(ALHATORAH_URL) > 0) {

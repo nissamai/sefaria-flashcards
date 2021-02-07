@@ -9,7 +9,7 @@ function createFlashcard(info) {
       console.log(res[1]);
     })
     .catch(err => {
-      console.log(err); // failed to get notecard
+      console.log(err); // TODO: handle failed to get flashcard 
     })
 }
 

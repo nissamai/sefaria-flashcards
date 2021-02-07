@@ -1,6 +1,9 @@
 export class Flashcard {
-    constructor(headword) {
-       
+    constructor(definitionItem, contextItem) {
+       // Headword
+       // Definition
+       // Reference
+       // 
     }
 
     addTag(tag) {
@@ -17,7 +20,5 @@ export class Flashcard {
         return refParts.reduce(reducer);
     }
 
-    updateFlashcard(word, definition, context, contextRef, tags) {
 
-    }
 }
