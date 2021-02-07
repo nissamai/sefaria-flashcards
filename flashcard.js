@@ -1,5 +1,5 @@
 export class Flashcard {
-    constructor(headword, ) {
+    constructor(headword) {
        
     }
 

@@ -1,15 +1,20 @@
 function createFlashcard(info) {
-  getDefinition(info.selectionText, info.pageUrl)
-  .then(res => res.json())
-  .then(res =>
-    console.log(res)
-  )
-  .catch(err => {
-    console.log(err);
-  })
+  var wordInfo = getWordInfo(info);
+  Promise.all([getDefinition(wordInfo), getContext(wordInfo)])
+    .then(responses =>
+      Promise.all(responses.map(res => res.json()))
+    )
+    .then(res => {
+      console.log(res[0]);
+      console.log(res[1]);
+    })
+    .catch(err => {
+      console.log(err); // failed to get notecard
+    })
 }
 
-var sefariaPages = ["https://*.sefaria.org/*"];
+
+var supportedPages = ["https://*.sefaria.org/*", "https://mg.alhatorah.org/*"];
 
 chrome.runtime.onInstalled.addListener(function () {
   chrome.contextMenus.create({
@@ -17,7 +22,7 @@ chrome.runtime.onInstalled.addListener(function () {
     "title": "Create Flashcard",
     "contexts": ["selection"],
     "onclick": createFlashcard,
-    "documentUrlPatterns": sefariaPages
+    "documentUrlPatterns": supportedPages
   });
 });
 

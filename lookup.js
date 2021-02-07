@@ -1,14 +1,45 @@
-function getLookupRef(url) {
-    return url.substring(url.lastIndexOf("/") + 1).split("?")[0];
+const ALHATORAH_URL = "mg.alhatorah.org/Full/";
+
+class WordInfo {
+    constructor(info) {
+        this.info = info;
+    }
+
+    get selectionText() {
+        return this.info.selectionText;
+    }
+
+    get lookupRef() {
+        return this.info.pageUrl.substring(this.info.pageUrl.lastIndexOf("/") + 1).split("?")[0];
+    }
 }
 
-function getDefinition(word, pageUrl) {
-    const wordApiUrl = `https://www.sefaria.org/api/words/${word}?always_consonants=1&never_split=1&lookup_ref=${getLookupRef(pageUrl)}`
+class AlHaTorahInfo extends WordInfo {
+    constructor(info) {
+        super(info);
+    }
+
+    get lookupRef() {
+        return this.info.pageUrl.substring(this.info.pageUrl.indexOf(ALHATORAH_URL) + ALHATORAH_URL.length).split("#")[0].replace("/",".");
+    }
+}
+
+function getWordInfo(info) {
+    console.log(info);
+    if (info.pageUrl.indexOf(ALHATORAH_URL) > 0) {
+        return new AlHaTorahInfo(info);
+    } else {
+        return new WordInfo(info);
+    }
+}
+
+function getDefinition(wordInfo) {
+    const wordApiUrl = `https://www.sefaria.org/api/words/${wordInfo.selectionText}?always_consonants=1&never_split=1&lookup_ref=${wordInfo.lookupRef}`
     return fetch(wordApiUrl);
 }
 
-function getContext(pageUrl) {
-    const textApiUrl = `https://www.sefaria.org/api/texts/${getLookupRef(pageUrl)}?context=0`
+function getContext(wordInfo) {
+    const textApiUrl = `https://www.sefaria.org/api/texts/${wordInfo.lookupRef}?context=0`
     return fetch(textApiUrl);
 }
 
