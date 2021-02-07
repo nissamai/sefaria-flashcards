@@ -1,11 +1,6 @@
 export class Flashcard {
-    constructor(word, definition, context, contextRef) {
-        this.word = word;
-        this.definition = definition;
-        this.context = context;
-        this.contextRef = contextRef;
-        this.tags = [];
-        this.addContextRefTags(contextRef);
+    constructor(headword, ) {
+       
     }
 
     addTag(tag) {
