@@ -1,5 +1,5 @@
 function createFlashcard(info) {
-  getDefinition(info.selectionText, info.pageUrl.substring(info.pageUrl.lastIndexOf("/") + 1).split("?")[0])
+  getDefinition(info.selectionText, info.pageUrl)
   .then(res => res.json())
   .then(res =>
     console.log(res)
