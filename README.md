@@ -34,3 +34,5 @@ Quickly generate flashcards for words while learning. Then you can study the fla
 8. Deck management
 
 9. Add support for looking up words while browsing things that aren't sefaria!
+
+10. XSS concerns? :O
