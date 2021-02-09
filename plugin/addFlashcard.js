@@ -7,6 +7,8 @@ function createFlashcard(info) {
     .then(res => {
       console.log(res[0]);
       console.log(res[1]);
+      // open new tab
+      // send it data
     })
     .catch(err => {
       console.log(err); // TODO: handle failed to get flashcard 

@@ -16,6 +16,6 @@
     "icons": {
 		"16": "sefaria-flashcard.png"
 	},
-    "permissions": ["storage", "activeTab", "contextMenus", "https://sefaria.org/", "tabs"]
+    "permissions": ["storage", "unlimitedStorage", "activeTab", "contextMenus", "https://sefaria.org/", "tabs"]
     
   }
