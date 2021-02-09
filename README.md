@@ -1,12 +1,21 @@
 # sefaria-flashcards
 Quickly generate flashcards for words while learning. Then you can study the flashcards along with the context you learned the word in, without the effort of putting them together manually! Yay!
 
+## Install for development
+- ensure node/npm is installed
+
+- run `npm run install:app`
+
+- run `npm run build-project:app`
+
+- go to chrome:extensions & load unpacked from plugin folder
+
 ## How to Use
 1. Right click a word and select "Create Flashcard" in the context menu.
 
-2. Modify Deck, Word, Translation, Context (Sentence & Location), and Tags
+2. Select definition for card to save from list
 
-3. 
+3. To study cards, click the icon
 
 
 ## Dev notes for benchmarks
@@ -36,3 +45,4 @@ Quickly generate flashcards for words while learning. Then you can study the fla
 9. Add support for looking up words while browsing things that aren't sefaria!
 
 10. XSS concerns? :O
+
