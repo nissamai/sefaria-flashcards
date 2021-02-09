@@ -17,8 +17,12 @@ Quickly generate flashcards for words while learning. Then you can study the fla
 
 3. To study cards, click the icon
 
+4. This app doesn't actually work yet
+
 
 ## Dev notes for benchmarks
+
+0. Move these to github issues???
 
 1. Get context menu to show up and trigger a function
 
