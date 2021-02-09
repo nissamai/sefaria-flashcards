@@ -46,3 +46,4 @@ Quickly generate flashcards for words while learning. Then you can study the fla
 
 10. XSS concerns? :O
 
+11. Handle error: Add http interceptor to handle receiving response that is error: Could not find title in reference-- by querying again without the reference.

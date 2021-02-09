@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href=/flashcards-manager/",
-    "build:prod": "ng build --prod --base-href=/flashcards-manager/",
+    "build": "ng build --base-href=/flashcards-manager/index.html",
+    "build:prod": "ng build --prod --base-href=/flashcards-manager/index.html",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

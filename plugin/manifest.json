@@ -5,7 +5,7 @@
     "manifest_version": 2,
     "background": {
         "scripts": [
-            "lookup.js",
+            "parse.js",
             "addFlashcard.js",
             "background.js"
         ]
@@ -14,8 +14,14 @@
         "default_title": "open notecards manager"
     },
     "icons": {
-		"16": "sefaria-flashcard.png"
-	},
-    "permissions": ["storage", "unlimitedStorage", "activeTab", "contextMenus", "https://sefaria.org/", "tabs"]
-    
-  }
+        "16": "sefaria-flashcard.png"
+    },
+    "permissions": [
+        "storage",
+        "unlimitedStorage",
+        "activeTab",
+        "contextMenus",
+        "https://sefaria.org/",
+        "tabs"
+    ]
+}

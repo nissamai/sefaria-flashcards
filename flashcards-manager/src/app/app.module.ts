@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudyFlashcardsComponent } from './study-flashcards/study-flashcards.component';
 import { AddFlashcardComponent } from './add-flashcard/add-flashcard.component';
+import { SefariaService } from './sefaria.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { AddFlashcardComponent } from './add-flashcard/add-flashcard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [    SefariaService  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
