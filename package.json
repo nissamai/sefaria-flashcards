@@ -4,7 +4,7 @@
     "description": "Chrome application to create flashcards using Sefaria API while learning",
     "scripts": {
         "install:app": "cd ./flashcards-manager/ && npm install",
-		"build-project:app": "cd ./flashcards-manager/ && node ./node_modules/@angular/cli/bin/ng --version && npm run build",
-        "build-project:app-prod": "cd ./flashcards-manager/ && node ./node_modules/@angular/cli/bin/ng --version && node ./node_modules/@angular/cli/bin/npm run build:prod"
+		"build-project:app": "cd ./flashcards-manager/ && node ./node_modules/@angular/cli/bin/ng --version && npm run build && npm run --silent bunny",
+        "build-project:app-prod": "cd ./flashcards-manager/ && node ./node_modules/@angular/cli/bin/ng --version && node ./node_modules/@angular/cli/bin/npm run build:prod && npm run --silent bunny"
     }
 }
