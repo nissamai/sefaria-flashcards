@@ -8,11 +8,13 @@ export class SefariaService {
 
   constructor(private http: HttpClient ) { }
 
-  getDefinition(wordInfo: WordInfo): Observable<Object> {
-    return this.http.get(`https://www.sefaria.org/api/words/${wordInfo.selectionText}?always_consonants=1&never_split=1&lookup_ref=${wordInfo.lookupRef}`);
+ // TODO handle error
+
+  getDefinitions(wordInfo: WordInfo): Observable<any[]> {
+    return this.http.get<any[]>(`https://www.sefaria.org/api/words/${wordInfo.selectionText}?always_consonants=1&never_split=1&lookup_ref=${wordInfo.lookupRef}`);
   }
 
-  getContext(wordInfo: WordInfo): Observable<Object> {
+  getContext(wordInfo: WordInfo): Observable<any> {
     return this.http.get(`https://www.sefaria.org/api/texts/${wordInfo.lookupRef}?context=0`);
   }
 }

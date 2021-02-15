@@ -8,7 +8,7 @@ function createFlashcard(info) {
     lookupRef = null
   }
   chrome.tabs.create({
-    url: chrome.extension.getURL(`flashcards-manager/index.html#/add-card/${headword}/${lookupRef}`)
+    url: chrome.extension.getURL(`flashcards-manager/index.html#/study?selection=${headword}&lookupRef=${lookupRef}`)
   });
 }
 

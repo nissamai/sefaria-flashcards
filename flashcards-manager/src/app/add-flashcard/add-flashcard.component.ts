@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { SefariaService } from '../sefaria.service';
 import { WordInfo } from '../word-info.class';
+import { TextMetadata, WordMetadata } from '../flashcard.class';
 
 @Component({
   selector: 'app-add-flashcard',
@@ -9,33 +11,48 @@ import { WordInfo } from '../word-info.class';
   styleUrls: ['./add-flashcard.component.scss']
 })
 export class AddFlashcardComponent implements OnInit {
-  selection: string = '';
-  lookupRef: string = '';
+  
   wordInfo: WordInfo = new WordInfo();
-  definitionObject: any;
-  contextObject: any;
-  defStr: string = ''
-  ctxStr: string = '';
+  definitionObjects: WordMetadata[] | null = null;
+  definitionIndex: number = 0;
+  definitionCount: number = 0;
+  contextObject: TextMetadata | null = null;
+  showContext = false;
 
-  constructor(private route: ActivatedRoute, private sefariaService: SefariaService) { }
+  constructor(
+    public dialogRef: MatDialogRef<AddFlashcardComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: {wordInfo: WordInfo}, private sefariaService: SefariaService) { }
 
   ngOnInit(): void {
-    this.selection = this.route.snapshot.paramMap.get('selection') ? this.route.snapshot.paramMap.get('selection') as string : '';
-    this.lookupRef = this.route.snapshot.paramMap.get('lookupRef') ? this.route.snapshot.paramMap.get('lookupRef') as string : '';
-    this.wordInfo = new WordInfo(this.selection, this.lookupRef);
-    this.sefariaService.getDefinition(this.wordInfo).subscribe(res => {
-      this.definitionObject = res;
-      this.defStr = JSON.stringify(this.definitionObject)
+    this.wordInfo = this.data.wordInfo;
+    this.sefariaService.getDefinitions(this.data.wordInfo).subscribe(res => {
+      this.definitionObjects = res.map(x => new WordMetadata(x));
+      this.definitionCount = this.definitionObjects.length;
+      console.log(this.definitionObjects);
     }, err => {
-      this.definitionObject = {}
+      // todo error message
     });
 
-    this.sefariaService.getContext(this.wordInfo).subscribe(res => {
-      this.contextObject = res;
-      this.ctxStr = JSON.stringify(this.contextObject);
+    this.sefariaService.getContext(this.data.wordInfo).subscribe(res => {
+      this.contextObject = new TextMetadata(res);
+      console.log(this.contextObject);
     })
 
+  }
 
+  toggleContext(): void {
+    this.showContext = !this.showContext;
+  }
+
+  increment(steps: number = 1): void {
+    this.definitionIndex = (this.definitionIndex + steps) % this.definitionCount;
+    while(this.definitionIndex < 0) {
+      this.definitionIndex = this.definitionIndex + this.definitionCount;
+    }
+  }
+
+  get contextButtonText() {
+    return this.showContext ? 'Hide Context' : `Show Context (${this.contextObject?.ref})`
   }
 
 }

@@ -7,19 +7,33 @@ import { StudyFlashcardsComponent } from './study-flashcards/study-flashcards.co
 import { AddFlashcardComponent } from './add-flashcard/add-flashcard.component';
 import { SefariaService } from './sefaria.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudyFlashcardsComponent,
     AddFlashcardComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule,
     AppRoutingModule,
-    HttpClientModule
+    MatButtonModule,
+    HttpClientModule,
+    NoopAnimationsModule
   ],
-  providers: [    SefariaService  ],
+  providers: [SefariaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
