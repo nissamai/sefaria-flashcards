@@ -44,10 +44,12 @@ export class WordContent {
 }
 
 export class WordSense {
-    constructor(def: string) {
+    constructor(def: string, senses: WordSense[]) {
         this.definition = def;
+        this.senses = senses;
     }
     definition: string;
+    senses: WordSense[] | null;
 }
 
 export class ParentLexicon {

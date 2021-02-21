@@ -1,0 +1,4 @@
+<div class="sense" *ngFor="let sense of this.senses; index as i">
+    {{i+1}}. {{sense.definition}}
+        <app-definition class="sense" *ngIf="sense.senses" [senses]="sense.senses"></app-definition>
+</div>

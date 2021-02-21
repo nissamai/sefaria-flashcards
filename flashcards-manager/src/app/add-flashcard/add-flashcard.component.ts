@@ -21,7 +21,7 @@ export class AddFlashcardComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AddFlashcardComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: {wordInfo: WordInfo}, private sefariaService: SefariaService) { }
+    @Inject(MAT_DIALOG_DATA) public data: {wordInfo: WordInfo}, private sefariaService: SefariaService) { }
 
   ngOnInit(): void {
     this.wordInfo = this.data.wordInfo;
