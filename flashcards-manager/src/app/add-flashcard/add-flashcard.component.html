@@ -1,22 +1,6 @@
 <div class="flashcard" id="main-flashcard" *ngIf="contextObject && definitionObjects">
-    <h2>Front of card: {{this.definitionObjects[definitionIndex].headword}}</h2>
-    <div id="save-flashcard-panel">
-        <!-- does not do anything -->
-        <button mat-raised-button color="primary" id="save">Save this Flashcard</button>
-    </div>
-    <div class="word-count">Definition {{definitionIndex + 1}} of {{definitionCount}}</div>
-    <div id="left-right"><button mat-button  color="accent" (click)="increment(-1)">Previous Definition</button><span class="spacer"></span><button mat-button color="accent" (click)="increment()">Next Definition</button></div>
-    <h2>Back of Card:</h2>
-    <mat-card class="flashcard-create">
-        <mat-card-title>{{this.definitionObjects[definitionIndex].headword}}</mat-card-title>
-        <mat-card-subtitle>{{this.definitionObjects[definitionIndex].content.morphology}}</mat-card-subtitle>
-        <mat-card-content>
-            <div class="source-name">{{this.definitionObjects[definitionIndex].parent_lexicon_details.name}}</div>
-            <app-definition [senses]="this.definitionObjects[definitionIndex].content.senses">
-            </app-definition>
-            <!-- TODO: figure what else to display here () -->
-        </mat-card-content>
-    </mat-card>
+    <h2>Front of card:</h2>
+    <h3 class="h2-styling">{{this.definitionObjects[definitionIndex].headword}}</h3>
     <mat-card>
         <ng-container *ngIf="showContext">
             <mat-card-title>{{contextObject?.ref}}</mat-card-title>
@@ -27,4 +11,25 @@
         </ng-container>
         <button mat-button (click)="toggleContext()">{{contextButtonText}}</button>
     </mat-card>
+    <h2>Back of card:</h2>
+    <mat-card class="flashcard-create">
+        <div class="definition-number">
+            <div>Select definition to save: {{definitionIndex + 1}} of {{definitionCount}}</div>
+            <div><button mat-button color="accent" (click)="increment(-1)">Previous</button>
+                <span class="spacer"></span><button mat-button color="accent" (click)="increment()">Next</button>
+            </div>
+        </div>
+        <mat-card-title>{{this.definitionObjects[definitionIndex].headword}}</mat-card-title>
+        <mat-card-subtitle>{{this.definitionObjects[definitionIndex].content.morphology}}</mat-card-subtitle>
+        <mat-card-content>
+            <div class="source-name">({{this.definitionObjects[definitionIndex].parent_lexicon_details.name}})</div>
+            <app-definition [senses]="this.definitionObjects[definitionIndex].content.senses">
+            </app-definition>
+            <!-- TODO: figure what else to display here () -->
+        </mat-card-content>
+    </mat-card>
+    <div id="save-flashcard-panel">
+        <!-- does not do anything -->
+        <button mat-raised-button color="primary" id="save">Save this Flashcard</button>
+    </div>
 </div>
