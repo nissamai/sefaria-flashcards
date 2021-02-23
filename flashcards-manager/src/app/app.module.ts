@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { DefinitionComponent } from './add-flashcard/definition/definition.component';
+import { CoreModule } from './core/core/core.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DefinitionComponent } from './add-flashcard/definition/definition.compo
     AppRoutingModule,
     MatButtonModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    CoreModule
   ],
   providers: [SefariaService],
   bootstrap: [AppComponent]
