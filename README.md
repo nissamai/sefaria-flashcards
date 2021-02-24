@@ -11,43 +11,45 @@ Quickly generate flashcards for words while learning. Then you can study the fla
 - go to chrome:extensions & load unpacked from plugin folder
 
 ## How to Use
-1. Right click a word and select "Create Flashcard" in the context menu.
+1. Navigate to AlHaTorah Tanakh or to inside of a sefaria text. Right click a word and select "Create Flashcard" in the context menu.
 
 2. Select definition for card to save from list
 
-3. To study cards, click the icon
+3. Save it.
 
-4. This app doesn't actually work yet
+4. To study cards, click the icon
+
+5. This app doesn't actually save anything yet. Sorry. but it's COMING SOON.
 
 
 ## Dev notes for benchmarks
 
-0. Move these to github issues???
+- [ ] Move these to github issues???
 
-1. Get context menu to show up and trigger a function
+- [x] Get context menu to show up and trigger a function
 
-2. Figure out how to set up IndexDB storage & trigger create storage upon application download
+- [x] Figure out how to set up IndexDB storage
 
-3. Trigger get context menu to add card to storage with autmatically generated information
+- [x] FIgure out what information and metadata needs to be stored on a flashcard
 
-4. Create page to view flashcards
+- [ ] Trigger create storage upon application download
 
-5. Allow user to "study" a deck
-    
-    a. CORRECT & INCORRECT
+- [x] Open angular application to add new card page when context menu is clicked
 
-    b. Shuffle
+- [ ] Create page to view flashcards
 
-    c. Restart
+- [ ] Allow user to "study" decks - probably at first just do multiselect; sort cards by the context they were learned in
 
-6. User can edit cards before storing them
+- [x] User can select the definition of the word in context that they want
 
-7. User can edit cards while learning them
+- [ ] User can edit cards before storing them
 
-8. Deck management
+- [ ] User can nav to the edit card page while learning them
 
-9. Add support for looking up words while browsing things that aren't sefaria!
+- [ ] improve deck management
 
-10. XSS concerns? :O
+- [ ] Add support for looking up words while browsing more things that aren't sefaria!
 
-11. Handle error: Add http interceptor to handle receiving response that is error: Could not find title in reference-- by querying again without the reference.
+- [ ] XSS concerns???
+
+- [ ] Handle error: Add http interceptor to handle receiving response that is error: Could not find title in reference-- by querying again without the reference.
